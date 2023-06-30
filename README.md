@@ -22,7 +22,7 @@ Use o modelo abaixo como base para criar sua Schema:
     cliente premium: boolean  
 }]  
 ```
-Todos os campos são obrigatórios
+Todos os campos são obrigatórios  
 Não esqueça de instalar ( npm i ) os repositórios:
  * express
  * dotenv
