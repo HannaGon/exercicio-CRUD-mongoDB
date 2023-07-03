@@ -27,3 +27,60 @@ Não esqueça de instalar ( npm i ) os repositórios:
  * express
  * dotenv
  * mongoose
+
+### Configurar o .env
+```sh
+PORT=
+MONGODB_URI=
+```
+
+### Acessando as rotas do Boletim
+
+- Exibe todos os resultados:
+```sh
+GET http://localhost:PORT/api/cliente
+```
+
+- Exibe por ID:
+```sh
+GET http://localhost:PORT/api/cliente/{id}
+```
+
+- Exibe o nome de todos os clientes e especifica se são clientes premium ou não:
+```sh
+GET http://localhost:PORT/api/cliente/status/premium
+```
+
+- Cria novo cadastro:
+```sh
+POST http://localhost:PORT/api/cliente
+```
+```json
+{
+	"nome": "Nome",
+	"email": "Email",
+	"endereco": {
+		"rua": "Rua",
+		"numero": "Numero",
+		"complemento": "Complemento",
+		"cidade": "Cidade",
+		"cep": 0
+	},
+	"cliente_premium": false
+}
+```
+
+- Altera cadastro:
+```sh
+PATCH http://localhost:PORT/api/cliente/{id}
+```
+```json
+{
+   "nome": "Nome"
+}
+```
+
+- Deleta cadastro:
+```sh
+DELETE http://localhost:PORT/api/cliente/{id}
+```
