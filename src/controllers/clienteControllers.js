@@ -24,6 +24,21 @@ const obterPorId = async (request, response) => {
     }
 }
 
+const obterTodosStatusPremium = async (request, response) => {
+    try {
+        const clientes = await clienteSchema.find({}, { nome: 1, cliente_premium: 1, _id: 0 })
+        const clientesStatusPremium = clientes.map(cliente => {
+            return {
+                ...cliente._doc,
+                cliente_premium: cliente.cliente_premium ? "Sim" : "Não"
+            };
+        });
+        response.status(200).send(clientesStatusPremium)
+    } catch (error) {
+        response.status(500).send({ mensagem: error.message })
+    }
+}
+
 const cadastrar = async (request, response) => {
     try {
         const clienteModelSchema = Object.assign({}, clienteModel, request.body)
@@ -77,6 +92,7 @@ const deletar = async (request, response) => {
 module.exports = {
     obterTodos,
     obterPorId,
+    obterTodosStatusPremium,
     cadastrar,
     atualizar,
     deletar

@@ -46,6 +46,11 @@ GET http://localhost:PORT/api/cliente
 GET http://localhost:PORT/api/cliente/{id}
 ```
 
+- Exibe o nome de todos os clientes e especifica se são clientes premium ou não:
+```sh
+GET http://localhost:PORT/api/cliente/status/premium
+```
+
 - Cria novo cadastro:
 ```sh
 POST http://localhost:PORT/api/cliente
@@ -57,7 +62,7 @@ POST http://localhost:PORT/api/cliente
 	"endereco": {
 		"rua": "Rua",
 		"numero": "Numero",
-        "complemento": "Complemento",
+		"complemento": "Complemento",
 		"cidade": "Cidade",
 		"cep": 0
 	},
