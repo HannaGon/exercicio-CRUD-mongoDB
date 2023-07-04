@@ -59,7 +59,7 @@ const atualizar = async (request, response) => {
                 if (request.body.hasOwnProperty(key)) {
                     if (cliente[key] instanceof Object && request.body[key] instanceof Object) {
                         Object.assign(cliente[key], request.body[key]);
-                    } else {
+                    } else if (!(cliente[key] instanceof Object)) {
                         cliente[key] = request.body[key];
                     }
                 }
