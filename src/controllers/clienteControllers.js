@@ -77,9 +77,8 @@ const atualizar = async (request, response) => {
 const deletar = async (request, response) => {
     try {
         const id = request.params.id
-        const cliente = await clienteSchema.findById(id)
+        const cliente = await clienteSchema.findByIdAndDelete(id)
         if (cliente) {
-            await cliente.deleteOne()
             response.status(200).send({ mensagem: `O cliente de ID ${id} foi deletado.` })
         } else {
             response.status(404).send({ mensagem: `Não foi encontrado o cliente de ID ${id}.` })
